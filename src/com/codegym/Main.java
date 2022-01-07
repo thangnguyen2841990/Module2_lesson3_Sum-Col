@@ -30,7 +30,9 @@ public class Main {
         // tinh tong cot tuy chon
         System.out.print("Enter Col: ");
         int col = scanner.nextInt();
-        System.out.println("Tổng của cột: "+col+" = "+sumCol(matrix,col));
+        System.out.println("Tổng của cột: " + col + " = " + sumCol(matrix, col));
+        // tinh tong duong cheo
+        System.out.println("Tổng của đường chéo chính là: "+ sumOfMainDiagonal(matrix));
 
     }
 
@@ -47,16 +49,29 @@ public class Main {
 
     // Xay dung ham tinh tong cot tuy chon
     public static int sumCol(int[][] arr, int col) {
-        int sum =0;
+        int sum = 0;
         for (int i = 0; i < arr.length; i++) {
 
             for (int j = 0; j < arr.length; j++) {
-                if (j == col){
-                    sum+= arr[i][j];
+                if (j == col) {
+                    sum += arr[i][j];
                 }
             }
         }
         return sum;
 
+    }
+
+    // Xay dung ham tinh tong duong cheo
+    public static int sumOfMainDiagonal(int[][] arr) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                if (i == j) {
+                    sum += arr[i][j];
+                }
+            }
+        }
+        return sum;
     }
 }
